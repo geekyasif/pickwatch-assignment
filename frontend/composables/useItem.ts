@@ -3,13 +3,13 @@ import type { IItem } from "~/types"
 type TUseItemProps = string
 
 export default function useItem(id: TUseItemProps) {
-    const isLoading = useState<boolean>("isLoading", () => false)
-    const item = useState<IItem>('item', () => ({
+    const isLoading = ref<boolean>(false)
+    const item = ref<IItem>({
         id: 0,
         title: '',
         body: '',
         userId: 0
-    }))
+    })
 
     async function handleFetchItem() {
         try {

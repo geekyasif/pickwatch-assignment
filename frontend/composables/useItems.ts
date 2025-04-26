@@ -1,9 +1,9 @@
 import type { IItem } from "~/types";
 
 export default function useItems() {
-    const items = useState<IItem[]>("items", () => []);
-    const isLoading = useState<boolean>("isLoading", () => false);
-    const error = useState<Error | null>("error", () => null);
+    const items = ref<IItem[]>([]);
+    const isLoading = ref<boolean>(false);
+    const error = ref<Error | null>(null);
     async function fetchItems() {
         try {
             isLoading.value = true;

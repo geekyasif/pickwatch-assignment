@@ -1,13 +1,13 @@
 <script setup lang="ts">
-const { items, isLoading, error } = useItems(); // Destructure to use in the template
+const { items, isLoading } = useItems();
 </script>
 
 <template>
   <div>
-    <div v-if="isLoading">Loading...</div>
-    <div v-if="error">{{ error.message }}</div>
-    <div v-else>
+    <template v-if="isLoading">Loading...</template>
+    <template v-else>
       <BTable :data="items" />
-    </div>
+      <BPagination :data="items" />
+    </template>
   </div>
 </template>
