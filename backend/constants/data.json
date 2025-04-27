@@ -1,132 +1,113 @@
 [
     {
-        "id": 1,
         "title": "Next.js",
         "description": "Next.js is a powerful, open-source React framework that enables developers to build fast, scalable web applications with ease. It supports server-side rendering (SSR), static site generation (SSG), and dynamic routing, making it a versatile choice for building React applications. Next.js provides a file-based routing system, automatic code splitting, and a simple way to manage both client-side and server-side code. Additionally, it offers built-in support for CSS and Sass, API routes, and environment variables, all of which streamline the development process. The framework's pre-rendering capabilities significantly improve the performance and SEO of applications, making it a popular choice for projects that require high-speed loading times and excellent user experience. Next.js also supports TypeScript out of the box and has great integration with various deployment platforms like Vercel and Netlify.",
         "created_at": "2025-04-01T08:30:00Z",
         "updated_at": "2025-04-15T10:00:00Z"
     },
     {
-        "id": 2,
         "title": "Vue.js",
         "description": "Vue.js is an approachable, versatile, and progressive JavaScript framework used for building interactive user interfaces and single-page applications. Vue provides reactive data binding and a component-based architecture, which makes it easy to integrate into projects of any size, from small components to large-scale applications. Vue's templating syntax allows developers to declaratively render dynamic content. The framework emphasizes simplicity and performance, and it can be incrementally adopted, making it perfect for both small projects and large applications. Vue has a vibrant ecosystem with a set of supporting libraries such as Vue Router for routing, Vuex for state management, and Vue CLI for project scaffolding and configuration. The framework is known for its gentle learning curve, detailed documentation, and fast rendering speed, all of which have contributed to its growing popularity among front-end developers.",
         "created_at": "2025-04-05T09:00:00Z",
         "updated_at": "2025-04-20T11:30:00Z"
     },
     {
-        "id": 3,
         "title": "React.js",
         "description": "React.js, developed and maintained by Facebook, is a JavaScript library for building user interfaces, primarily for single-page applications. React introduces the concept of component-based architecture, where each component manages its own state and renders a portion of the UI. React’s virtual DOM optimizes performance by minimizing the number of direct manipulations of the actual DOM. This results in faster updates and a more responsive user experience. React is known for its declarative syntax, making it easier to reason about the UI's state and behavior. The library also encourages reusable components, which can significantly reduce code duplication and improve maintainability. React’s vast ecosystem includes popular tools like React Router for routing, Redux for state management, and Next.js for server-side rendering and static site generation. React’s widespread adoption, strong community support, and its ability to scale to large applications have made it one of the most popular libraries for modern web development.",
         "created_at": "2025-04-07T14:00:00Z",
         "updated_at": "2025-04-22T12:15:00Z"
     },
     {
-        "id": 4,
         "title": "Nuxt.js",
         "description": "Nuxt.js is a high-level framework built on top of Vue.js, designed to make building server-side rendered (SSR) applications easier and more powerful. It abstracts away complex configurations and provides features like automatic code splitting, server-side rendering, and static site generation out of the box. With Nuxt.js, developers can create SEO-friendly, fast-loading applications without having to worry about the low-level implementation details. Nuxt supports dynamic routing, easy state management, and a powerful plugin system, making it a flexible tool for building large-scale web applications. The framework allows developers to generate static sites, which can be deployed on any static hosting service, while also supporting SSR for applications that require real-time dynamic content. With the ability to configure both SSR and static generation in the same application, Nuxt is particularly useful for building websites that need to balance dynamic content with the benefits of SEO and performance.",
         "created_at": "2025-04-10T16:00:00Z",
         "updated_at": "2025-04-23T14:00:00Z"
     },
     {
-        "id": 5,
         "title": "Koa.js",
         "description": "Koa.js is a lightweight, minimal, and flexible Node.js framework developed by the creators of Express.js. It is designed to be a smaller and more expressive alternative to Express, focusing on providing a more modular and middleware-based architecture. Koa allows developers to create powerful web applications and APIs with full control over the request and response objects, offering greater flexibility and fewer built-in features than Express. Koa makes heavy use of modern JavaScript features like async/await, which makes asynchronous code easier to write and maintain. The framework provides a set of core tools, but it allows developers to choose the specific modules they need for things like routing, templating, and validation. This makes Koa ideal for building custom solutions where fine-grained control over each request/response cycle is needed. Koa's middleware pipeline is designed to be simple and robust, making it suitable for building both small and complex applications. Its performance and scalability have made it a popular choice for high-performance web applications.",
         "created_at": "2025-04-12T18:00:00Z",
         "updated_at": "2025-04-25T13:45:00Z"
     },
     {
-        "id": 6,
         "title": "Vuex",
         "description": "Vuex is a state management pattern and library for Vue.js applications. It serves as a centralized store for all the components in an application, ensuring that the state is managed in a predictable and consistent manner. Vuex is built to integrate seamlessly with Vue.js, providing an efficient way to share and manage data across components in large-scale applications. The library implements a unidirectional data flow, where actions mutate the state, and changes to the state automatically trigger updates to the view. Vuex helps developers avoid issues related to shared state and complex state transitions in large applications, making it a crucial tool for building maintainable and scalable apps. Vuex has built-in support for modules, allowing the state to be split into smaller, more manageable pieces for even larger projects. The library also includes tools for debugging and tracking state changes in development mode, improving the development experience.",
         "created_at": "2025-04-14T07:00:00Z",
         "updated_at": "2025-04-26T09:00:00Z"
     },
     {
-        "id": 7,
         "title": "React Router",
         "description": "React Router is a declarative routing library for React applications. It enables the navigation of different views or pages in a single-page application (SPA) without the need for full page reloads. React Router provides a set of components that allow developers to define different routes and handle transitions between them seamlessly. The library supports features like dynamic routing, nested routes, and lazy loading, making it easier to manage the navigation flow in large applications. React Router also integrates well with other state management libraries like Redux, and it allows for easy programmatic navigation and route protection. By leveraging the power of the virtual DOM and React’s component-based architecture, React Router enables smooth and efficient user experiences in web applications. React Router is widely used in React applications, both small and large, due to its flexibility and ease of use.",
         "created_at": "2025-04-16T10:15:00Z",
         "updated_at": "2025-04-22T13:30:00Z"
     },
     {
-        "id": 8,
         "title": "System Design",
         "description": "System design is a broad field that involves designing and implementing the architecture of software systems that are scalable, efficient, and maintainable. A well-designed system ensures that software can handle increasing traffic and provide a smooth user experience while being easy to manage and extend. Key concepts in system design include high availability, fault tolerance, load balancing, data replication, caching, and database sharding. To design scalable systems, engineers use patterns like microservices, event-driven architectures, and serverless computing. Frontend and backend systems must be tightly integrated, with frontend focusing on delivering responsive user interfaces and backend handling complex business logic, APIs, and data management. Frontend frameworks like React, Vue, and Angular interact with backend services through APIs, while backend frameworks like Node.js, Django, and Ruby on Rails manage business logic and data storage. Distributed systems and databases such as NoSQL, SQL, and GraphQL play crucial roles in handling large amounts of data, providing data consistency, and supporting real-time communication. Understanding how to design systems with clear separation of concerns, scalability, and fault-tolerant features is essential for modern software engineering, and it forms the foundation of a robust application architecture.",
         "created_at": "2025-04-20T12:00:00Z",
         "updated_at": "2025-04-25T15:00:00Z"
     },
     {
-        "id": 9,
         "title": "Quantum Computing: Present and Future",
         "description": "An exploration of current quantum computing technologies and their potential impact on the future of computing.",
         "created_at": "2025-04-27T10:05:00Z",
         "updated_at": "2025-04-28T11:25:00Z"
     },
     {
-        "id": 10,
         "title": "IoT Security Challenges",
         "description": "Addressing the unique security challenges in the Internet of Things ecosystem and strategies for mitigation.",
         "created_at": "2025-04-28T08:30:00Z",
         "updated_at": "2025-04-28T08:30:00Z"
     },
     {
-        "id": 11,
         "title": "Introduction to Machine Learning",
         "description": "A beginner's guide to understanding the fundamentals of machine learning algorithms and their applications in modern technology.",
         "created_at": "2025-01-15T10:30:00Z",
         "updated_at": "2025-01-20T14:45:00Z"
     },
     {
-        "id": 12,
         "title": "Building Scalable Microservices",
         "description": "Learn how to design and implement microservice architectures that can scale to handle millions of requests efficiently.",
         "created_at": "2025-02-03T09:15:00Z",
         "updated_at": "2025-02-10T11:20:00Z"
     },
     {
-        "id": 13,
         "title": "Modern JavaScript Frameworks Compared",
         "description": "An in-depth analysis of React, Vue, and Angular with performance benchmarks and use case recommendations.",
         "created_at": "2025-02-18T15:45:00Z",
         "updated_at": "2025-03-01T12:10:00Z"
     },
     {
-        "id": 14,
         "title": "Blockchain for Enterprise Solutions",
         "description": "Exploring how blockchain technology can be leveraged for enterprise-level applications beyond cryptocurrency.",
         "created_at": "2025-03-07T13:20:00Z",
         "updated_at": "2025-03-12T16:30:00Z"
     },
     {
-        "id": 15,
         "title": "Cloud Security Best Practices",
         "description": "Essential security measures and protocols for protecting data and applications in cloud environments.",
         "created_at": "2025-03-21T08:45:00Z",
         "updated_at": "2025-03-25T10:15:00Z"
     },
     {
-        "id": 16,
         "title": "AI Ethics and Responsible Development",
         "description": "Discussing the ethical considerations and social responsibility aspects of artificial intelligence development.",
         "created_at": "2025-04-02T11:30:00Z",
         "updated_at": "2025-04-10T09:45:00Z"
     },
     {
-        "id": 17,
         "title": "Database Systems: SQL vs NoSQL",
         "description": "A comparative analysis of relational and non-relational database systems with performance metrics for different use cases.",
         "created_at": "2025-04-14T14:20:00Z",
         "updated_at": "2025-04-18T16:50:00Z"
     },
     {
-        "id": 18,
         "title": "DevOps Pipeline Automation",
         "description": "Strategies for automating CI/CD pipelines to improve development velocity and software quality.",
         "created_at": "2025-04-20T09:10:00Z",
         "updated_at": "2025-04-25T13:40:00Z"
     },
     {
-        "id": 19,
         "title": "React Router",
         "description": "React Router is a declarative routing library for React applications. It enables the navigation of different views or pages in a single-page application (SPA) without the need for full page reloads. React Router provides a set of components that allow developers to define different routes and handle transitions between them seamlessly. The library supports features like dynamic routing, nested routes, and lazy loading, making it easier to manage the navigation flow in large applications. React Router also integrates well with other state management libraries like Redux, and it allows for easy programmatic navigation and route protection. By leveraging the power of the virtual DOM and React’s component-based architecture, React Router enables smooth and efficient user experiences in web applications. React Router is widely used in React applications, both small and large, due to its flexibility and ease of use. Additionally, when used in conjunction with modern backend technologies like GraphQL or REST APIs, React Router allows for an optimized flow of data and seamless page transitions in single-page applications.",
         "created_at": "2025-04-16T10:15:00Z",
