@@ -42,7 +42,7 @@ class ItemController {
         page,
         pageSize,
         totalPages,
-        data: { items },
+        items,
         total,
       });
     } catch (error) {
@@ -74,7 +74,7 @@ class ItemController {
 
       return ResponseHandler.sendSucessResponse(
         ctx,
-        { item },
+        item,
         "Item found successfully",
         HTTP_STATUS_CODE.OK
       );
@@ -102,7 +102,7 @@ class ItemController {
 
       return ResponseHandler.sendSucessResponse(
         ctx,
-        { id: id },
+        { item: { id: id } },
         "Item delete successfully",
         HTTP_STATUS_CODE.OK
       );
