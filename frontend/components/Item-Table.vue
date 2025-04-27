@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import type { IColumn, IItem } from "~/types";
+import type { IColumn } from "~/types";
 
-const props = defineProps<{
-  data: IItem[];
-  loading: boolean;
-  error: Error | null;
-}>();
+const { items, isLoading: loading, error } = useItems();
 
 const router = useRouter();
 const columns: IColumn[] = [
@@ -38,14 +34,14 @@ function navigate(id: number | string) {
       </b-thead>
 
       <b-tbody>
-        <template v-if="props.loading"> <Page-Loader /></template>
-        <template v-else-if="props.error"> Something went wrong!</template>
-        <template v-else-if="!props.loading && props.data.length === 0">
+        <template v-if="loading"> <Page-Loader /></template>
+        <template v-else-if="error"> Something went wrong!</template>
+        <template v-else-if="!loading && items.list.length === 0">
           No items found!</template
         >
         <template v-else>
           <b-tr
-            v-for="item in props.data"
+            v-for="item in items.list"
             :key="item.id"
             @click="navigate(item.id)"
           >

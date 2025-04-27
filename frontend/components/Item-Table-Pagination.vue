@@ -1,11 +1,5 @@
 <script setup lang="ts">
-const pagination = ref({
-  currentPage: 1,
-});
-const totalPages = ref(0);
-function handlePagination(step: string) {
-  console.log(step);
-}
+const { params, handlePagination, items } = useItems();
 </script>
 
 <template>
@@ -13,17 +7,17 @@ function handlePagination(step: string) {
     <Pagination>
       <PageItem>
         <PageLink
-          :disabled="pagination.currentPage === 1"
+          :disabled="params.page === 1"
           @click="handlePagination('prev')"
           >Previous</PageLink
         >
       </PageItem>
       <PageItem>
-        <PageLink>{{ pagination.currentPage }}</PageLink>
+        <PageLink>{{ params.page }}</PageLink>
       </PageItem>
       <PageItem>
         <PageLink
-          :disabled="pagination.currentPage === totalPages"
+          :disabled="params.page === items.totalPages"
           @click="handlePagination('next')"
           >Next</PageLink
         >

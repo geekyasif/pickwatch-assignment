@@ -1,23 +1,62 @@
-import type { IItem } from "~/types";
+import type { IItem, IItemListResponse, IParams } from "~/types";
 
 export default function useItems() {
-    const items = ref<IItem[]>([]);
+
     const isLoading = ref<boolean>(false);
     const error = ref<Error | null>(null);
-    async function fetchItems() {
+
+    const items = ref<{
+        list: IItem[];
+        total: number;
+        totalPages: number;
+    }>({
+        list: [],
+        total: 0,
+        totalPages: 0,
+    });
+
+    const params = ref<IParams>({
+        page: 1,
+        pageSize: 10,
+    });
+
+    async function handleFetchItems() {
         try {
             isLoading.value = true;
-            const data = await $fetch<IItem[]>('https://jsonplaceholder.typicode.com/posts');
-            items.value = data;
+            const data: IItemListResponse = await $fetch(
+                `http://localhost:5001/items?page=${params.value.page}&pageSize=${params.value.pageSize}`
+            );
+
+            items.value.list = data?.data?.items;
+            items.value.total = Number(data?.data?.total);
+            items.value.totalPages = Number(data?.data?.totalPages);
+            params.value.page = Number(data?.data?.page);
+            params.value.pageSize = Number(data?.data?.pageSize);
         } catch (err) {
-            console.log("Something went wrong!", err);
+            console.log(err);
             error.value = err instanceof Error ? err : new Error("Unknown error");
         } finally {
             isLoading.value = false;
         }
     }
 
-    onMounted(fetchItems);
+    function handlePagination(direction: string) {
+        if (direction === "next" && Number(params.value.page) <= Number(items.value.totalPages)) {
+            params.value.page++;
+        }
 
-    return { items, isLoading, error };
+        if (direction === "prev" && params.value.page > 1) {
+            params.value.page--;
+        }
+    }
+
+    watch(
+        () => params.value.page,
+        handleFetchItems,
+        { immediate: true }
+    );
+
+    console.log({ items: items.value.list })
+
+    return { items, isLoading, error, params, handlePagination };
 }
