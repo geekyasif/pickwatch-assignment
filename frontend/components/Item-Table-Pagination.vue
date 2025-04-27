@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { IItem } from "~/types";
-
-const props = defineProps<{
-  data: IItem[];
-}>();
-
-const { pagination, totalPages, handlePagination } = usePagination(props.data);
+const pagination = ref({
+  currentPage: 1,
+});
+const totalPages = ref(0);
+function handlePagination(step: string) {
+  console.log(step);
+}
 </script>
 
 <template>

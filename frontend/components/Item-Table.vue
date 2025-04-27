@@ -55,6 +55,8 @@ function navigate(id: number | string) {
         </template>
       </b-tbody>
     </b-table>
-    <!-- <Table-Pagination /> -->
+    <div>
+      <Item-Table-Pagination />
+    </div>
   </div>
 </template>

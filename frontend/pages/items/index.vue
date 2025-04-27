@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { IItem, IParams, IItemListResponse } from "~/types";
+definePageMeta({
+  layout: "Item-Layout",
+});
 
 const isLoading = ref<boolean>(false);
 const error = ref<Error | null>(null);
@@ -43,7 +46,5 @@ onMounted(handleFetchItems);
 </script>
 
 <template>
-  <Item-Layout>
-    <Item-Table :data="items.list" :loading="isLoading" :error="error" />
-  </Item-Layout>
+  <Item-Table :data="items.list" :loading="isLoading" :error="error" />
 </template>
