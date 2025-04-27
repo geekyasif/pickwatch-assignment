@@ -3,7 +3,7 @@ import type { IColumn, IItem } from "~/types";
 
 const props = defineProps<{
   data: IItem[];
-  isLoading: boolean;
+  loading: boolean;
   error: Error | null;
 }>();
 
@@ -38,9 +38,9 @@ function navigate(id: number | string) {
       </b-thead>
 
       <b-tbody>
-        <template v-if="props.isLoading"> Loading...</template>
+        <template v-if="props.loading"> <Page-Loader /></template>
         <template v-else-if="props.error"> Something went wrong!</template>
-        <template v-else-if="props.data.length === 0">
+        <template v-else-if="!props.loading && props.data.length === 0">
           No items found!</template
         >
         <template v-else>

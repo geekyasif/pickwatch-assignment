@@ -38,13 +38,18 @@ class ItemController {
       const { items, total } = await ItemService.findMany({ skip, limit });
       const totalPages = Math.ceil(total / limit);
 
-      return (ctx.body = {
-        page,
-        pageSize,
-        totalPages,
-        items,
-        total,
-      });
+      return ResponseHandler.sendSucessResponse(
+        ctx,
+        {
+          page,
+          pageSize,
+          totalPages,
+          items,
+          total,
+        },
+        "Items fetch successfully",
+        HTTP_STATUS_CODE.OK
+      );
     } catch (error) {
       console.log("Something went wrong! while fetching the item list", error);
       next(error);
@@ -74,7 +79,7 @@ class ItemController {
 
       return ResponseHandler.sendSucessResponse(
         ctx,
-        item,
+        { item },
         "Item found successfully",
         HTTP_STATUS_CODE.OK
       );

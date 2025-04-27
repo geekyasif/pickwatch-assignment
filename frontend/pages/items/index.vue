@@ -27,10 +27,10 @@ async function handleFetchItems() {
     );
 
     items.value.list = data?.data?.items;
-    items.value.total = data?.total;
-    items.value.totalPages = data?.totalPages;
-    params.value.page = data?.page;
-    params.value.pageSize = data?.pageSize;
+    items.value.total = data?.data?.total;
+    items.value.totalPages = data?.data?.totalPages;
+    params.value.page = data?.data?.page;
+    params.value.pageSize = data?.data?.pageSize;
   } catch (err) {
     console.log(err);
     error.value = err instanceof Error ? err : new Error("Unknown error");
@@ -44,6 +44,6 @@ onMounted(handleFetchItems);
 
 <template>
   <div>
-    <Item-Table :data="items.list" :isLoading="isLoading" :error="error" />
+    <Item-Table :data="items.list" :loading="isLoading" :error="error" />
   </div>
 </template>

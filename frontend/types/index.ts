@@ -25,7 +25,7 @@ export interface IParams {
 export interface IItemResponse {
     data: {
         item: IItem
-    }
+    },
     message: string,
     success: boolean,
     status: number
@@ -33,7 +33,11 @@ export interface IItemResponse {
   
 export interface IItemListResponse {
     data: {
-        item: IItem[]
+        items: IItem[],
+        page: number,
+        pageSize: number,
+        total: number,
+        totalPages: number
     }
     message: string,
     success: boolean,

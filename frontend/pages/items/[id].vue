@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+
 const route = useRoute();
-const id = route.params.id;
 const isLoading = ref<boolean>(false);
 const item = ref<IItem>();
 
@@ -8,9 +10,9 @@ async function handleFetchItem() {
   try {
     isLoading.value = true;
     const data: IItemResponse = await $fetch(
-      `http://localhost:5001/items/${id}`
+      `http://localhost:5001/items/${route.params.id}`
     );
-    console.log(data?.data);
+    console.log({ item: data?.data?.item });
     item.value = data?.data?.item;
   } catch (error) {
     console.log("Something went wrong!", error);
@@ -18,18 +20,19 @@ async function handleFetchItem() {
     isLoading.value = false;
   }
 }
-console.log({ item: item.value, isLoading: isLoading.value });
-onMounted(handleFetchItem);
+
+watch(
+  () => route.params.id,
+  () => {
+    handleFetchItem();
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
   <div>
-    {{ id }}
-    <div v-if="isLoading">Loading...</div>
-    <div v-else>
-      <p>{{ item.title }}</p>
-      <p>{{ item.description }}</p>
-    </div>
+    <Item-Card :item="item" :loading="isLoading" />
   </div>
 </template>
 ;
