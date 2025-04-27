@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>PickWatch Full-Stack Application Technologies Used</h1>
+    <b-h level="1" text-alignment="center">
+      PickWatch Full-Stack Application Technologies Used
+    </b-h>
     <pre>
       Backend: 
       Koa Framework: 

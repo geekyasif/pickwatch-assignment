@@ -12,7 +12,11 @@ const props = defineProps<{
     </Card>
     <Card v-else>
       <CardBody>
-        <CardTitle>{{ props.item.title }}</CardTitle>
+        <CardTitle>
+          <b-p text-alignment="center">
+            {{ props.item.title }}
+          </b-p></CardTitle
+        >
         <CardText>
           {{ props.item.description }}
         </CardText>
