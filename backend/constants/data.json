@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "title": "Wireless Mouse",
+        "description": "A high-quality wireless mouse with ergonomic design and long battery life.",
+        "created_at": "2025-04-01T08:30:00Z",
+        "updated_at": "2025-04-15T10:00:00Z"
+    },
+    {
+        "id": 2,
+        "title": "Bluetooth Headphones",
+        "description": "Noise-cancelling Bluetooth headphones with superior sound quality and comfortable fit.",
+        "created_at": "2025-04-05T09:00:00Z",
+        "updated_at": "2025-04-20T11:30:00Z"
+    },
+    {
+        "id": 3,
+        "title": "4K Smart TV",
+        "description": "A 55-inch 4K Ultra HD smart TV with HDR support and streaming capabilities.",
+        "created_at": "2025-04-07T14:00:00Z",
+        "updated_at": "2025-04-22T12:15:00Z"
+    },
+    {
+        "id": 4,
+        "title": "Laptop Stand",
+        "description": "Adjustable laptop stand to improve posture and comfort during long working hours.",
+        "created_at": "2025-04-10T16:00:00Z",
+        "updated_at": "2025-04-23T14:00:00Z"
+    },
+    {
+        "id": 5,
+        "title": "Portable Charger",
+        "description": "A 10000mAh portable charger with fast charging capabilities and compact design.",
+        "created_at": "2025-04-12T18:00:00Z",
+        "updated_at": "2025-04-25T13:45:00Z"
+    },
+    {
+        "id": 6,
+        "title": "Electric Kettle",
+        "description": "A 1.7L electric kettle with rapid boiling technology and auto-shutoff feature.",
+        "created_at": "2025-04-14T07:00:00Z",
+        "updated_at": "2025-04-26T09:00:00Z"
+    },
+    {
+        "id": 7,
+        "title": "Smart Watch",
+        "description": "A fitness-focused smartwatch with heart rate monitoring and sleep tracking.",
+        "created_at": "2025-04-16T10:15:00Z",
+        "updated_at": "2025-04-22T13:30:00Z"
+    },
+    {
+        "id": 8,
+        "title": "Electric Toothbrush",
+        "description": "A rechargeable electric toothbrush with multiple cleaning modes and timer.",
+        "created_at": "2025-04-17T11:30:00Z",
+        "updated_at": "2025-04-25T10:15:00Z"
+    },
+    {
+        "id": 9,
+        "title": "Coffee Maker",
+        "description": "A 12-cup programmable coffee maker with adjustable brew strength and warming plate.",
+        "created_at": "2025-04-19T13:00:00Z",
+        "updated_at": "2025-04-24T15:00:00Z"
+    },
+    {
+        "id": 10,
+        "title": "Standing Desk",
+        "description": "An adjustable standing desk for a healthy and productive work environment.",
+        "created_at": "2025-04-20T14:45:00Z",
+        "updated_at": "2025-04-25T14:45:00Z"
+    },
+    {
+        "id": 11,
+        "title": "Portable Projector",
+        "description": "A compact and portable projector with full HD resolution and wireless connectivity.",
+        "created_at": "2025-04-21T16:10:00Z",
+        "updated_at": "2025-04-23T17:20:00Z"
+    },
+    {
+        "id": 12,
+        "title": "Smart Light Bulb",
+        "description": "A Wi-Fi-enabled smart light bulb that changes color and brightness via a mobile app.",
+        "created_at": "2025-04-22T08:00:00Z",
+        "updated_at": "2025-04-24T08:00:00Z"
+    },
+    {
+        "id": 13,
+        "title": "Gaming Chair",
+        "description": "A comfortable ergonomic chair designed for long gaming sessions with adjustable features.",
+        "created_at": "2025-04-23T12:00:00Z",
+        "updated_at": "2025-04-25T16:00:00Z"
+    },
+    {
+        "id": 14,
+        "title": "Air Purifier",
+        "description": "A HEPA air purifier designed to remove allergens, dust, and pollutants from your home.",
+        "created_at": "2025-04-24T09:30:00Z",
+        "updated_at": "2025-04-26T11:00:00Z"
+    },
+    {
+        "id": 15,
+        "title": "Bluetooth Speaker",
+        "description": "A portable Bluetooth speaker with 360-degree sound and long battery life.",
+        "created_at": "2025-04-25T17:45:00Z",
+        "updated_at": "2025-04-26T09:30:00Z"
+    }
+]

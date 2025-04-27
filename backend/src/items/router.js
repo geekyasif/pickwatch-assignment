@@ -4,5 +4,6 @@ const router = new Router();
 
 router.get("/", ItemController.getItemList);
 router.get("/:id", ItemController.getItemDetails);
+router.post("/");
 
 module.exports = router;
