@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const { handlePagination, params, totalPages } = defineProps<{
-  handlePagination: (direction: string) => void;
+const { params, totalPages } = defineProps<{
   params: IParams;
   totalPages: number;
 }>();
+const emit = defineEmits(["paginate"]);
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const { handlePagination, params, totalPages } = defineProps<{
       <PageItem>
         <PageLink
           :disabled="params.page === 1"
-          @click="() => handlePagination('prev')"
+          @click="() => emit('paginate', 'prev')"
           >Previous</PageLink
         >
       </PageItem>
@@ -22,7 +22,7 @@ const { handlePagination, params, totalPages } = defineProps<{
       <PageItem>
         <PageLink
           :disabled="params.page === totalPages"
-          @click="() => handlePagination('next')"
+          @click="() => emit('paginate', 'next')"
           >Next</PageLink
         >
       </PageItem>

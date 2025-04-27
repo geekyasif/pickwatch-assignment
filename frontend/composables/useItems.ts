@@ -45,10 +45,26 @@ export default function useItems() {
             params.value.page--;
         }
     }
+    async function handleDeleteItem(id: string | number) {
+        try {
+            console.log(id)
+            handleFetchItems()
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     watch(params, () => {
         handleFetchItems();
     }, { deep: true, immediate: true });
 
-    return { items, isLoading, error, params, handlePagination };
+    return {
+        items,
+        isLoading,
+        error,
+        params,
+        handlePagination,
+        handleFetchItems,
+        handleDeleteItem
+    };
 }

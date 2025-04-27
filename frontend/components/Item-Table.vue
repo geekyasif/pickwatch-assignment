@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { IColumn } from "~/types";
 
-const { items, loading, error, params, handlePagination } = defineProps<{
+const { items, loading, error, params } = defineProps<{
   items: IItems;
   loading: boolean;
   error: Error | null;
   params: IParams;
-  handlePagination: (direction: string) => void;
 }>();
+const emit = defineEmits(["paginate", "delete-item"]);
 
 const router = useRouter();
 const columns: IColumn[] = [
@@ -28,8 +28,15 @@ const columns: IColumn[] = [
   },
 ];
 
+function handlePagination(direction: string) {
+  emit("paginate", direction);
+}
+
+function handleDeleteItem(id: number | string) {
+  emit("delete-item", id);
+}
+
 function navigate(id: number | string) {
-  console.log(id);
   router.push(`/items/${id}`);
 }
 </script>
@@ -69,7 +76,13 @@ function navigate(id: number | string) {
         <b-tr v-for="item in items.list" v-else :key="item.id">
           <b-th scope="row">{{ item.id }}</b-th>
           <b-td class="hover" @click="navigate(item.id)">{{ item.title }}</b-td>
-          <b-td> <BIcon class="hover" icon="bi:trash" margin="2" /></b-td>
+          <b-td>
+            <BIcon
+              class="hover"
+              icon="bi:trash"
+              margin="2"
+              @click="() => handleDeleteItem(item.id)"
+          /></b-td>
         </b-tr>
       </b-tbody>
     </b-table>
@@ -77,8 +90,8 @@ function navigate(id: number | string) {
     <b-div flex justify-content="center">
       <Item-Table-Pagination
         :params="params"
-        :handlePagination="handlePagination"
         :totalPages="items.totalPages"
+        @paginate="handlePagination"
       />
     </b-div>
   </b-div>

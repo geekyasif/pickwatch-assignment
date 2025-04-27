@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { items, isLoading, error, params, handlePagination } = useItems();
+const { items, isLoading, error, params, handlePagination, handleDeleteItem } =
+  useItems();
 </script>
 
 <template>
@@ -8,6 +9,7 @@ const { items, isLoading, error, params, handlePagination } = useItems();
     :loading="isLoading"
     :error="error"
     :params="params"
-    :handlePagination="handlePagination"
+    @paginate="handlePagination"
+    @delete-item="handleDeleteItem"
   />
 </template>
