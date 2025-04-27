@@ -7,6 +7,36 @@ export interface IColumn {
 export interface IItem {
     id: number | string
     title: string
-    body: string
-    userId: number
+    description: string
+    create_at: string,
+    updated_at: string
+
 }
+
+export interface IConfig {
+    api_url: string
+}
+
+export interface IParams {
+    page: number;
+    pageSize: number;
+}
+
+export interface IItemResponse {
+    data: {
+        item: IItem
+    }
+    message: string,
+    success: boolean,
+    status: number
+}
+  
+export interface IItemListResponse {
+    data: {
+        item: IItem[]
+    }
+    message: string,
+    success: boolean,
+    status: number
+}
+  
