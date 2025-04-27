@@ -1,8 +1,28 @@
+const { HTTP_STATUS_CODE } = require("../../constants");
+const ResponseHandler = require("../../utils/responseHandler");
 const ItemService = require("./service");
 
 class ItemController {
   static async createItem(ctx, next) {
     try {
+      const { title, description } = ctx.request.body;
+
+      if (!title || !description) {
+        return ResponseHandler.sendErrorResponse(
+          ctx,
+          "Title and Description are necessary! It cannot be empty.",
+          HTTP_STATUS_CODE.BAD_REQUEST
+        );
+      }
+
+      const new_item = await ItemService.create({ title, description });
+
+      return ResponseHandler.sendSucessResponse(
+        ctx,
+        { item: new_item },
+        "New Item created successfully",
+        HTTP_STATUS_CODE.OK
+      );
     } catch (error) {
       console.log("Something went wrong! while creating the item", error);
       next(error);
@@ -27,10 +47,31 @@ class ItemController {
   static async getItemDetails(ctx, next) {
     try {
       const { id } = ctx.request.params;
+
+      if (!id || id === undefined || id === null) {
+        return ResponseHandler.sendErrorResponse(
+          ctx,
+          "Item id is required!",
+          HTTP_STATUS_CODE.BAD_REQUEST
+        );
+      }
+
       const item = await ItemService.findFirst({ id });
-      return (ctx.body = {
-        item,
-      });
+
+      if (!item) {
+        return ResponseHandler.sendErrorResponse(
+          ctx,
+          "Item not found with specific id",
+          HTTP_STATUS_CODE.NOT_FOUND
+        );
+      }
+
+      return ResponseHandler.sendSucessResponse(
+        ctx,
+        { item: item },
+        "Item found successfully",
+        HTTP_STATUS_CODE.OK
+      );
     } catch (error) {
       console.log(
         "Something went wrong while fetching the item details.",
@@ -41,6 +82,24 @@ class ItemController {
   }
   static async deleteItem(ctx, next) {
     try {
+      const { id } = ctx.request.params;
+
+      if (!id || id === undefined || id === null) {
+        return ResponseHandler.sendErrorResponse(
+          ctx,
+          "Item id is required!",
+          HTTP_STATUS_CODE.BAD_REQUEST
+        );
+      }
+
+      await ItemService.delete({ id });
+
+      return ResponseHandler.sendSucessResponse(
+        ctx,
+        { id: id },
+        "Item delete successfully",
+        HTTP_STATUS_CODE.OK
+      );
     } catch (error) {
       console.log("Something went wrong while deleting the item", error);
       next(error);
