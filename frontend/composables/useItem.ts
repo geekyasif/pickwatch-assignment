@@ -1,21 +1,17 @@
-import type { IItem } from "~/types"
+import type { IItem, IItemResponse } from "~/types"
 
 type TUseItemProps = string
 
 export default function useItem(id: TUseItemProps) {
     const isLoading = ref<boolean>(false)
-    const item = ref<IItem>({
-        id: 0,
-        title: '',
-        body: '',
-        userId: 0
-    })
+    const item = ref<IItem>()
 
     async function handleFetchItem() {
         try {
             isLoading.value = true
-            const data: IItem = await $fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-            item.value = data
+            const data: IItemResponse = await $fetch(`http://localhost:5001/items/${id}`)
+            console.log(data?.data)
+            item.value = data?.data?.item
         } catch (error) {
             console.log("Something went wrong!", error)
         } finally {
