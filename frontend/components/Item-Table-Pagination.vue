@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const { params, handlePagination, items } = useItems();
+const { handlePagination, params, totalPages } = defineProps<{
+  handlePagination: (direction: string) => void;
+  params: IParams;
+  totalPages: number;
+}>();
 </script>
 
 <template>
@@ -8,7 +12,7 @@ const { params, handlePagination, items } = useItems();
       <PageItem>
         <PageLink
           :disabled="params.page === 1"
-          @click="handlePagination('prev')"
+          @click="() => handlePagination('prev')"
           >Previous</PageLink
         >
       </PageItem>
@@ -17,8 +21,8 @@ const { params, handlePagination, items } = useItems();
       </PageItem>
       <PageItem>
         <PageLink
-          :disabled="params.page === items.totalPages"
-          @click="handlePagination('next')"
+          :disabled="params.page === totalPages"
+          @click="() => handlePagination('next')"
           >Next</PageLink
         >
       </PageItem>

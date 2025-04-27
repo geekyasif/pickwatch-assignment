@@ -1,9 +1,13 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: "Item-Layout",
-});
+const { items, isLoading, error, params, handlePagination } = useItems();
 </script>
 
 <template>
-  <Item-Table />
+  <Item-Table
+    :items="items"
+    :loading="isLoading"
+    :error="error"
+    :params="params"
+    :handlePagination="handlePagination"
+  />
 </template>

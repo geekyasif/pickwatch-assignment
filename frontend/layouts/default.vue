@@ -1,8 +1,8 @@
 <template>
   <div>
     <Default-Navbar />
-    <div class="container">
+    <b-div class="container" padding="y-4">
       <slot />
-    </div>
+    </b-div>
   </div>
 </template>

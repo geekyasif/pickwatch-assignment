@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import type { IColumn } from "~/types";
 
-const { items, isLoading: loading, error } = useItems();
+const { items, loading, error, params, handlePagination } = defineProps<{
+  items: IItems;
+  loading: boolean;
+  error: Error | null;
+  params: IParams;
+  handlePagination: (direction: string) => void;
+}>();
 
 const router = useRouter();
 const columns: IColumn[] = [
@@ -18,13 +24,14 @@ const columns: IColumn[] = [
 ];
 
 function navigate(id: number | string) {
+  console.log(id);
   router.push(`/items/${id}`);
 }
 </script>
 
 <template>
-  <div>
-    <b-table>
+  <b-div>
+    <b-table bordered rounded hover>
       <b-thead>
         <b-tr>
           <b-th v-for="col in columns" :key="col.id" scope="col">
@@ -34,25 +41,44 @@ function navigate(id: number | string) {
       </b-thead>
 
       <b-tbody>
-        <template v-if="loading"> <Page-Loader /></template>
-        <template v-else-if="error"> Something went wrong!</template>
-        <template v-else-if="!loading && items.list.length === 0">
-          No items found!</template
+        <b-tr v-if="loading">
+          <b-td :colspan="columns.length" class="text-center p-5">
+            <b-div flex justify-content="center" align-items="center">
+              <Spinner />
+            </b-div>
+          </b-td>
+        </b-tr>
+
+        <b-tr v-else-if="error">
+          <b-td :colspan="columns.length" class="text-center">
+            Something went wrong!
+          </b-td>
+        </b-tr>
+
+        <b-tr v-else-if="items.list.length === 0">
+          <b-td :colspan="columns.length" class="text-center">
+            No items found!
+          </b-td>
+        </b-tr>
+
+        <b-tr
+          v-for="item in items.list"
+          v-else
+          :key="item.id"
+          @click="navigate(item.id)"
         >
-        <template v-else>
-          <b-tr
-            v-for="item in items.list"
-            :key="item.id"
-            @click="navigate(item.id)"
-          >
-            <b-th scope="row"> {{ item.id }} </b-th>
-            <b-td>{{ item.title }}</b-td>
-          </b-tr>
-        </template>
+          <b-th scope="row">{{ item.id }}</b-th>
+          <b-td>{{ item.title }}</b-td>
+        </b-tr>
       </b-tbody>
     </b-table>
-    <div>
-      <Item-Table-Pagination />
-    </div>
-  </div>
+
+    <b-div flex justify-content="center">
+      <Item-Table-Pagination
+        :params="params"
+        :handlePagination="handlePagination"
+        :totalPages="items.totalPages"
+      />
+    </b-div>
+  </b-div>
 </template>

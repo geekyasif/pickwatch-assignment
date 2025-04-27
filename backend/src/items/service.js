@@ -5,7 +5,7 @@ class ItemService {
     try {
       const { skip, limit } = params;
       const items = data.slice(skip, skip + limit);
-      const total = items.length;
+      const total = data.length;
       return { items, total };
     } catch (error) {
       console.log(

@@ -6,15 +6,17 @@ const props = defineProps<{
 </script>
 
 <template>
-  <Card>
-    <template v-if="loading"><Page-Loader /></template>
-    <template v-else>
+  <b-div>
+    <Card v-if="loading" flex align-items="center" justify-items="center">
+      <CardBody> <Spinner /></CardBody>
+    </Card>
+    <Card v-else>
       <CardBody>
         <CardTitle>{{ props.item.title }}</CardTitle>
         <CardText>
           {{ props.item.description }}
         </CardText>
       </CardBody>
-    </template>
-  </Card>
+    </Card>
+  </b-div>
 </template>

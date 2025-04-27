@@ -1,15 +1,11 @@
-import type { IItem, IItemListResponse, IParams } from "~/types";
+import type { IItemListResponse, IItems, IParams } from "~/types";
 
 export default function useItems() {
 
     const isLoading = ref<boolean>(false);
     const error = ref<Error | null>(null);
 
-    const items = ref<{
-        list: IItem[];
-        total: number;
-        totalPages: number;
-    }>({
+    const items = ref<IItems>({
         list: [],
         total: 0,
         totalPages: 0,
@@ -50,13 +46,9 @@ export default function useItems() {
         }
     }
 
-    watch(
-        () => params.value.page,
-        handleFetchItems,
-        { immediate: true }
-    );
-
-    console.log({ items: items.value.list })
+    watch(params, () => {
+        handleFetchItems();
+    }, { deep: true, immediate: true });
 
     return { items, isLoading, error, params, handlePagination };
 }

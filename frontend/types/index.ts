@@ -30,7 +30,7 @@ export interface IItemResponse {
     success: boolean,
     status: number
 }
-  
+
 export interface IItemListResponse {
     data: {
         items: IItem[],
@@ -43,4 +43,9 @@ export interface IItemListResponse {
     success: boolean,
     status: number
 }
-  
+
+export interface IItems {
+    list: IItem[];
+    total: number;
+    totalPages: number;
+}
