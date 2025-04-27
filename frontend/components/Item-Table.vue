@@ -21,6 +21,11 @@ const columns: IColumn[] = [
     key: "title",
     name: "Title",
   },
+  {
+    id: 3,
+    key: "action",
+    name: "Action",
+  },
 ];
 
 function navigate(id: number | string) {
@@ -61,14 +66,10 @@ function navigate(id: number | string) {
           </b-td>
         </b-tr>
 
-        <b-tr
-          v-for="item in items.list"
-          v-else
-          :key="item.id"
-          @click="navigate(item.id)"
-        >
+        <b-tr v-for="item in items.list" v-else :key="item.id">
           <b-th scope="row">{{ item.id }}</b-th>
-          <b-td>{{ item.title }}</b-td>
+          <b-td class="hover" @click="navigate(item.id)">{{ item.title }}</b-td>
+          <b-td> <BIcon class="hover" icon="bi:trash" margin="2" /></b-td>
         </b-tr>
       </b-tbody>
     </b-table>
@@ -82,3 +83,9 @@ function navigate(id: number | string) {
     </b-div>
   </b-div>
 </template>
+
+<style>
+.hover {
+  cursor: pointer;
+}
+</style>
