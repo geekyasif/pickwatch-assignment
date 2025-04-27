@@ -1,4 +1,5 @@
-const data = require("../../constants/data.json");
+const ItemService = require("./service");
+
 class ItemController {
   static async createItem(ctx, next) {
     try {
@@ -14,9 +15,9 @@ class ItemController {
       const limit = Number(pageSize);
       const skip = (Number(page) - 1) * limit;
 
-      const items = data.slice(skip, skip + limit);
-      const total = data.length;
+      const { items, total } = await ItemService.findMany({ skip, limit });
       const totalPages = Math.ceil(total / limit);
+
       return (ctx.body = { page, pageSize, totalPages, items, total });
     } catch (error) {
       console.log("Something went wrong! while fetching the item list", error);
@@ -26,7 +27,7 @@ class ItemController {
   static async getItemDetails(ctx, next) {
     try {
       const { id } = ctx.request.params;
-      const item = data.find((item) => item.id === Number(id));
+      const item = await ItemService.findFirst({ id });
       return (ctx.body = {
         item,
       });
