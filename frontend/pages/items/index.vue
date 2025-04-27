@@ -43,7 +43,7 @@ onMounted(handleFetchItems);
 </script>
 
 <template>
-  <div>
+  <Item-Layout>
     <Item-Table :data="items.list" :loading="isLoading" :error="error" />
-  </div>
+  </Item-Layout>
 </template>
