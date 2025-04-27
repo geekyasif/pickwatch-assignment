@@ -12,7 +12,6 @@ async function handleFetchItem() {
     const data: IItemResponse = await $fetch(
       `http://localhost:5001/items/${route.params.id}`
     );
-    console.log({ item: data?.data?.item });
     item.value = data?.data?.item;
   } catch (error) {
     console.log("Something went wrong!", error);

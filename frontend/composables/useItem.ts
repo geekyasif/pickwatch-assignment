@@ -10,7 +10,6 @@ export default function useItem(id: TUseItemProps) {
         try {
             isLoading.value = true
             const data: IItemResponse = await $fetch(`http://localhost:5001/items/${id}`)
-            console.log(data?.data)
             item.value = data?.data?.item
         } catch (error) {
             console.log("Something went wrong!", error)

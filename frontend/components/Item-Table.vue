@@ -23,6 +23,16 @@ const columns: IColumn[] = [
   },
   {
     id: 3,
+    key: "created_at",
+    name: "created_at",
+  },
+  {
+    id: 4,
+    key: "updated_at",
+    name: "updated_at",
+  },
+  {
+    id: 5,
     key: "action",
     name: "Action",
   },
@@ -76,6 +86,8 @@ function navigate(id: number | string) {
         <b-tr v-for="item in items.list" v-else :key="item.id">
           <b-th scope="row">{{ item.id }}</b-th>
           <b-td class="hover" @click="navigate(item.id)">{{ item.title }}</b-td>
+          <b-td>{{ formatDate(item.created_at) }}</b-td>
+          <b-td>{{ formatDate(item.updated_at) }}</b-td>
           <b-td>
             <BIcon
               class="hover"
