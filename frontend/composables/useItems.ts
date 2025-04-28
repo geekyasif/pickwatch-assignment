@@ -45,9 +45,11 @@ export default function useItems() {
             params.value.page--;
         }
     }
+   
     async function handleDeleteItem(id: string | number) {
         try {
             console.log(id)
+            await $fetch(`http://localhost:5001/items/${id}`, {method: "delete"})
             handleFetchItems()
         } catch (error) {
             console.log(error)
