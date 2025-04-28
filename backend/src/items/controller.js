@@ -3,32 +3,6 @@ const ResponseHandler = require("../../utils/responseHandler");
 const ItemService = require("./service");
 
 class ItemController {
-  static async createItem(ctx, next) {
-    try {
-      const { title, description } = ctx.request.body;
-
-      if (!title || !description) {
-        return ResponseHandler.sendErrorResponse(
-          ctx,
-          "Title and Description are necessary! It cannot be empty.",
-          HTTP_STATUS_CODE.BAD_REQUEST
-        );
-      }
-
-      const new_item = await ItemService.create({ title, description });
-
-      return ResponseHandler.sendSucessResponse(
-        ctx,
-        { item: new_item },
-        "New Item created successfully",
-        HTTP_STATUS_CODE.OK
-      );
-    } catch (error) {
-      console.log("Something went wrong! while creating the item", error);
-      next(error);
-    }
-  }
-
   static async getItemList(ctx, next) {
     try {
       const { page = 1, pageSize = 10 } = ctx.request.query;
