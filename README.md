@@ -2,11 +2,27 @@
 
 **Koa.js (backend)**, **Nuxt.js (frontend)**, **PostgreSQL**, and **Prisma ORM**.
 
-https://drive.google.com/file/d/19fquuc_cAup3eK3efxE6hglg3YlklbL7/view?usp=sharing
-https://drive.google.com/file/d/1Oc22KZ2Ts9LGYeRNmkaqRwi3BtHl8ZLt/view?usp=sharing
-https://drive.google.com/file/d/1_akL85ZrH2cEehLQF09dUKKD7F1kDayE/view?usp=sharing
-https://drive.google.com/file/d/1jCSqH47E4JTDO2gsH45nkkeF_cqMctma/view?usp=sharing
-https://drive.google.com/file/d/1rpD-CnCzzqoWOxSt_57q2j_sW8XJkKgn/view?usp=sharing
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](https://drive.google.com/uc?export=view&id=1_akL85ZrH2cEehLQF09dUKKD7F1kDayE)
+
+### 📋 Items List
+![Item Details](https://drive.google.com/uc?export=view&id=19fquuc_cAup3eK3efxE6hglg3YlklbL7)
+
+### 📋 Items List
+![Frontend Running](https://drive.google.com/uc?export=view&id=1rpD-CnCzzqoWOxSt_57q2j_sW8XJkKgn)
+
+### ⚙️ Item Detail Page
+![Item Detail Page](https://drive.google.com/uc?export=view&id=1jCSqH47E4JTDO2gsH45nkkeF_cqMctma)
+
+---
+
+## 🎥 Demo Video
+
+[👉 Watch Demo Video Here](https://drive.google.com/file/d/1jCSqH47E4JTDO2gsH45nkkeF_cqMctma/view?usp=sharing)
+
+
 
 ---
 
