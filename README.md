@@ -45,6 +45,18 @@ constant/           # Dummy JSON data for seeding
 server.js           # Entry point (server setup and configuration)
 ```
 
+### API Endpoints:
+```
+[GET]
+/items?page=1&pageSize=10 # Get all the items list from the db and support pagination
+
+[GET]
+/items/:id  # Get the item details using id
+
+[DELETE]
+/items/:id    # Delete the item with the specific id
+```
+
 ### Setup Instructions:
 
 1. **PostgreSQL Setup (using Docker):**
