@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { IItem } from "~/types";
 const props = defineProps<{
-  item: IItem;
+  item: IItem | undefined;
   loading: boolean;
 }>();
 </script>
@@ -14,11 +15,11 @@ const props = defineProps<{
       <CardBody>
         <CardTitle>
           <b-p text-alignment="center">
-            {{ props.item.title }}
+            {{ props?.item?.title }}
           </b-p></CardTitle
         >
         <CardText>
-          {{ props.item.description }}
+          {{ props?.item?.description }}
         </CardText>
       </CardBody>
     </Card>

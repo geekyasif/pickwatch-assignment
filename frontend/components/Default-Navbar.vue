@@ -1,7 +1,7 @@
 <template>
   <Navbar expand="lg" theme="dark" background-color="dark">
     <Container class="container">
-      <NavbarBrand to="/">PikWatch</NavbarBrand>
+      <NavbarBrand to="/">PickWatch</NavbarBrand>
       <NavbarToggler />
       <NavbarCollapse>
         <NavbarNavList margin="e-auto b-2 b-lg-0">

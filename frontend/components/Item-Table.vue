@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IColumn } from "~/types";
+import type { IColumn, IItems, IParams } from "~/types";
 
 const { items, loading, error, params } = defineProps<{
   items: IItems;
@@ -83,8 +83,10 @@ function navigate(id: number | string) {
           </b-td>
         </b-tr>
 
-        <b-tr v-for="item in items.list" v-else :key="item.id">
-          <b-th scope="row">{{ item.id }}</b-th>
+        <b-tr v-for="(item, index) in items.list" v-else :key="item.id">
+          <b-th scope="row">{{
+            (Number(params.page) - 1) * 10 + index + 1
+          }}</b-th>
           <b-td class="hover" @click="navigate(item.id)">{{ item.title }}</b-td>
           <b-td>{{ formatDate(item.created_at) }}</b-td>
           <b-td>{{ formatDate(item.updated_at) }}</b-td>

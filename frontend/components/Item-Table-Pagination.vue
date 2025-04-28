@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { IParams } from "~/types";
 const { params, totalPages } = defineProps<{
   params: IParams;
   totalPages: number;

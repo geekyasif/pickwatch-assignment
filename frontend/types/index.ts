@@ -8,7 +8,7 @@ export interface IItem {
     id: number | string
     title: string
     description: string
-    create_at: string,
+    created_at: string,
     updated_at: string
 
 }

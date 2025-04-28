@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
+import type { IItem, IItemResponse } from "~/types";
 
 const route = useRoute();
 const isLoading = ref<boolean>(false);
-const item = ref<IItem>();
+const item = ref<IItem | undefined>();
 
 async function handleFetchItem() {
   try {
